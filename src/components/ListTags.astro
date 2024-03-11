@@ -1,0 +1,18 @@
+<section>
+  <h2 class="text-lg">Tags</h2>
+  <div class="flex items-center flex-wrap gap-1">
+    {
+      Array(10)
+        .fill(4)
+        .map((item) => {
+          return (
+            <a href="#">
+              <span class="bg-gray-700 text-gray-300 text-xs font-medium px-2.5 py-0.5 rounded transition-all duration-300 hover:bg-gray-600">
+                Dark
+              </span>
+            </a>
+          );
+        })
+    }
+  </div>
+</section>

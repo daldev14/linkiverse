@@ -1,0 +1,25 @@
+---
+import type { Code, Debug } from "astro:components";
+import Card from "../components/Card.astro";
+import { getAllMetadaData } from "../utils/getMetaData";
+
+const data = await getAllMetadaData();
+console.log(data);
+---
+
+<section class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+  {
+    data.map((link) => {
+      return (
+        <Card
+          name={link.name}
+          baseUrl={link.baseUrl}
+          url={link.url}
+          description={`${link.description}`}
+          imageUrl={`${link.imageUrl}`}
+          favicon={`${link.favicon}`}
+        />
+      );
+    })
+  }
+</section>

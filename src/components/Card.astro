@@ -1,0 +1,40 @@
+---
+interface Props {
+  name: string;
+  baseUrl: string;
+  url: string;
+  description: string;
+  imageUrl: string;
+  favicon: string;
+}
+
+const { name, baseUrl, url, description, imageUrl, favicon } = Astro.props;
+---
+
+<a href={url} target="_blank" rel="noopener noreferrer">
+  <article
+    class="h-40 flex rounded-lg border border-gray-600 overflow-hidden transition-all duration-300 hover:bg-white/5"
+  >
+    <header class="flex-1 flex flex-col justify-between px-4 py-2">
+      <div class="space-y-2">
+        <h3 class="font-semibold text-xl">{name}</h3>
+        <p class="text-xs text-gray-400 text-pretty">{description}</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <img
+          src={`${baseUrl}${favicon}`}
+          alt={`Image from the ${name} website`}
+          class="w-3 aspect-square"
+        />
+        <span class="text-[10px]">{url.slice(8, -1)}</span>
+      </div>
+    </header>
+    <footer class="flex">
+      <img
+        src={imageUrl}
+        alt={`Icon from the ${name} website`}
+        class="w-60 object-cover object-center"
+      />
+    </footer>
+  </article>
+</a>
