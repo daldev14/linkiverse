@@ -9,6 +9,7 @@ interface Props {
 }
 
 const { name, baseUrl, url, description, imageUrl, favicon } = Astro.props;
+const faviconUrl = favicon[0] === "/" ? favicon.slice(1) : favicon;
 ---
 
 <a href={url} target="_blank" rel="noopener noreferrer">
@@ -22,19 +23,25 @@ const { name, baseUrl, url, description, imageUrl, favicon } = Astro.props;
       </div>
       <div class="flex items-center gap-2">
         <img
-          src={`${baseUrl}${favicon}`}
-          alt={`Image from the ${name} website`}
+          src={`${baseUrl}/${faviconUrl}`}
+          alt={`Icon from the ${name} website`}
           class="w-3 aspect-square"
         />
         <span class="text-[10px]">{url.slice(8, -1)}</span>
       </div>
     </header>
     <footer class="flex">
-      <img
-        src={imageUrl}
-        alt={`Icon from the ${name} website`}
-        class="w-60 object-cover object-center"
-      />
+      {
+        imageUrl !== "undefined" ? (
+          <img
+            src={imageUrl}
+            alt={`Image from the ${name} website`}
+            class="w-60 object-cover object-center aspect-[1.52/1]"
+          />
+        ) : (
+          <div class="w-60 aspect-[1.52/1]" />
+        )
+      }
     </footer>
   </article>
 </a>
