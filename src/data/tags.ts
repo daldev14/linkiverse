@@ -1,0 +1,15 @@
+export const TAGS = [
+  { name: "Benchmarking", slug: "benchmarking" },
+  { name: "HTML", slug: "html" },
+  { name: "Icons", slug: "icons" },
+  { name: "Images", slug: "images" },
+  { name: "JavaScript", slug: "javascript" },
+  { name: "JSON", slug: "json" },
+  { name: "Optimization", slug: "optimization" },
+  { name: "React", slug: "React" },
+  { name: "Regex", slug: "regex" },
+  { name: "SEO", slug: "seo" },
+  { name: "SVG", slug: "svg" },
+  { name: "Unminify", slug: "unminify" },
+  { name: "Whiteboard", slug: "whiteboard" },
+];
