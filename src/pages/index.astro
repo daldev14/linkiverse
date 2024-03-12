@@ -2,13 +2,18 @@
 import ListLinks from "@/components/ListLinks.astro";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import Search from "@/components/Search.astro";
+import ListTags from "@/components/ListTags.astro";
 ---
 
 <Layout title="Welcome to LinkHub.">
   <Header />
   <main class="text-white mb-4">
-    <div class="flex flex-col gap-8">
-      <!-- <ListTags /> -->
+    <div class="flex flex-col gap-4">
+      <section>
+        <Search />
+        <ListTags />
+      </section>
       <ListLinks />
     </div>
   </main>
