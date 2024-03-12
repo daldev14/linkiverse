@@ -1,4 +1,6 @@
 ---
+import CardButton from "./CardButton.astro";
+
 interface Props {
   name: string;
   baseUrl: string;
@@ -12,41 +14,45 @@ const { name, baseUrl, url, description, imageUrl, favicon } = Astro.props;
 const faviconUrl = favicon[0] === "/" ? favicon.slice(1) : favicon;
 ---
 
-<a href={url} target="_blank" rel="noopener noreferrer">
-  <article
-    class="h-28 md:h-40 flex rounded-lg border border-gray-600 overflow-hidden transition-all duration-300 hover:bg-white/5"
-  >
-    <header class="flex-1 flex flex-col justify-between px-4 py-2 md:py-4">
-      <div class="space-y-2">
-        <h3 class="font-semibold text-base md:text-xl">{name}</h3>
-        <p class="description text-[8px] md:text-xs text-gray-400">
-          {description !== "undefined" ? description : ""}
-        </p>
-      </div>
-      <div class="flex items-center gap-2">
-        <img
-          src={`${baseUrl}/${faviconUrl}`}
-          alt={`Icon from the ${name} website`}
-          class="w-3 aspect-square"
-        />
-        <span class="text-[10px] md:text-xs">{url.slice(8)}</span>
-      </div>
-    </header>
-    <footer class="flex w-36 sm:w-36 md:w-72">
-      {
-        imageUrl !== "undefined" ? (
+<div class="relative">
+  <a href={url} target="_blank" rel="noopener noreferrer">
+    <article
+      class="h-28 md:h-40 flex rounded-lg border border-gray-600 overflow-hidden transition-all duration-300 hover:bg-white/5"
+    >
+      <header class="flex-1 flex flex-col justify-between px-4 py-2 md:py-4">
+        <div class="space-y-2">
+          <h3 class="font-semibold text-base md:text-xl">{name}</h3>
+          <p class="description text-[8px] md:text-xs text-gray-400">
+            {description !== "undefined" ? description : ""}
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
           <img
-            src={imageUrl}
-            alt={`Image from the ${name} website`}
-            class="w-full object-cover object-center aspect-[1.8228/1]"
+            src={`${baseUrl}/${faviconUrl}`}
+            alt={`Icon from the ${name} website`}
+            class="w-3 aspect-square"
           />
-        ) : (
-          <div class="w-full bg-[#1b1d22] aspect-[1.8228/1]" />
-        )
-      }
-    </footer>
-  </article>
-</a>
+          <span class="text-[10px] md:text-xs">{url.slice(8)}</span>
+        </div>
+      </header>
+      <footer class="flex w-36 sm:w-36 md:w-72">
+        {
+          imageUrl !== "undefined" ? (
+            <img
+              src={imageUrl}
+              alt={`Image from the ${name} website`}
+              class="w-full object-cover object-center aspect-[1.8228/1]"
+            />
+          ) : (
+            <div class="w-full bg-[#1b1d22] aspect-[1.8228/1]" />
+          )
+        }
+      </footer>
+    </article>
+  </a>
+
+  <CardButton />
+</div>
 
 <style>
   .description {

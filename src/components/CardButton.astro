@@ -1,0 +1,21 @@
+---
+import PinIcon from "./icons/PinIcon.astro";
+---
+
+<div
+  class="absolute -right-2 -top-2 grid place-content-center rounded-full p-1.5 bg-gray-600"
+>
+  <button id="button">
+    <span class="sr-only">Pin</span>
+    <PinIcon class="size-4" />
+  </button>
+</div>
+
+<script>
+  function handleClick(event) {
+    event.stopPropagation();
+    console.log("hola");
+  }
+
+  document.getElementById("button").addEventListener("click", handleClick);
+</script>
